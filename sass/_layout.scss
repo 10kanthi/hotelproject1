@@ -1,0 +1,101 @@
+.container {
+    max-width: 120rem;
+    margin: 8rem auto;
+    background-color: var(--color-grey-light-2);
+    box-shadow: var(--shadow-dark);
+
+    min-height: 50rem;
+//////////////////////////////media queries/////////////////////////////////////
+    @media only screen and (max-width: $bp-largest) {
+        margin: 0; //remove pink margin (was 8rem top and bottom)
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+.header {
+    font-size: 1.4rem;
+    height: 7rem;
+    background-color: #fff;
+    border-bottom: var(--line);
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media only screen and (max-width: $bp-smallest) {
+        flex-wrap: wrap; //moves search bar to the next line
+        height: 11rem;
+        align-content: space-around;
+    }
+}
+
+.content {
+    display: flex;
+    //////////////////////////////media queries/////////////////////////////////////
+    @media only screen and (max-width: $bp-medium) {
+        flex-direction: column
+        // will move navigation sidebar to top 
+    }
+}
+
+.sidebar {
+    background-color: var(--color-grey-dark-1);
+
+    flex: 0 0 18%;
+    display: flex;
+    flex-direction: column;//change direction(form default row to column)
+    // only for sidebar in order to be able to use space-between 
+    justify-content: space-between;
+
+}
+
+.hotel-view {
+    background-color: #fff;
+    flex: 1;
+}
+
+.detail {
+    font-size: 1.4rem;
+    display: flex;
+    padding: 4.5rem;
+    background-color: var(--color-grey-light-2);
+
+    //when we have 2 media queries , first we use the one for larger screens and then the smaller to avoid conflicts,
+    // except if we have the same property that should be changes we apply the last one first
+    @media only screen and (max-width: $bp-medium) {
+       padding: 3rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+       flex-direction: column;
+    }
+}
+
+.description {
+    
+    background-color:#fff;
+    box-shadow:var(--shadow-light);
+    padding: 3rem;
+    flex: 0 0 60%; //when use prercentage - do not use shrink or grow options ,
+    // so we assign 0 for both other values
+    margin-right: 4.5rem;
+
+    @media only screen and (max-width: $bp-medium) {
+        padding: 2rem;
+        margin-right: 3rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+         margin-right: 0;
+         margin-bottom: 3rem;
+    }
+}
+
+.user-reviews {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
